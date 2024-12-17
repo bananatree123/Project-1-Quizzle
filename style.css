@@ -87,7 +87,7 @@ h1 {
   color: beige;
 }
 
-.cities-option {
+#cities-option {
     cursor: pointer;
     display: flex;
     width: 75px;
@@ -100,7 +100,7 @@ h1 {
     background-color: white;
   }
 
-.flags-option {
+#flags-option {
     cursor: pointer;
     width: 75px;
     height: 40px;
@@ -116,4 +116,13 @@ h1 {
     width:5px;
     height:auto;
     display:inline-block;
+}
+
+.questions-button {
+  display: block;
+}
+
+img {
+  max-width: 300px;
+  width: 100%;
 }
