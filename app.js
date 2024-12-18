@@ -48,6 +48,7 @@ const flagsArray = [
 /*-------------------------------- Variables --------------------------------*/
 let chosenArray = [];
 let currentQuestionIndex = 0
+let score = 0
 /*------------------------ Cached Element References ------------------------*/
 const startBtn = document.querySelector("#start-btn");
 const startPage = document.querySelector("#start-page");
@@ -57,12 +58,15 @@ const citiesOption = document.querySelector("#cities-option")
 const flagsOption = document.querySelector("#flags-option")
 const questionButtons = document.querySelectorAll(".questions-button")
 const questionImage = document.querySelector("#questions-image")
-
-
+const nextButton = document.querySelector(".next-button")
+const scoreElement = document.querySelector(".score span")
+const finalScoreContainer = document.querySelector("#final-score-container")
+const finalScoreSpan = document.querySelector("#final-score")
+const restartBtn = document.querySelector("#restart-btn")
 /*-------------------------------- Functions --------------------------------*/
 
 function showCategoryPage() {
-    startPage.style.display = "none";       
+    startPage.style.display = "none";     //  
     categoryPage.style.display = "block";   
   }
 
@@ -76,16 +80,14 @@ function showCategoryPage() {
     
 }
 
-
 function displayQuestion() {
     const question = chosenArray[currentQuestionIndex]; 
     console.log('Displaying question:', question)
 
-    //display image 
+
     questionImage.src = question.image
 
-    //display buttons 
-    // for each button update inner HTML
+  
     questionButtons.forEach((button, index) => {
         button.innerHTML = question.answers[index]
         console.log(question.answers[index])
@@ -93,14 +95,46 @@ function displayQuestion() {
   
 }
 
+function updateScoreDisplay() {
+    scoreElement.innerHTML = score; 
+}
+
+
 function revealAnswer(event) {
     const userAnswer = event.target.innerHTML;
     const correctAnswer = chosenArray[currentQuestionIndex].correctAnswer;
 
+    if (userAnswer === correctAnswer) {
+        event.target.style.backgroundColor = "green";
+        score += 100; 
+        updateScoreDisplay();
+    } else {
+        event.target.style.backgroundColor = "red";
+    }
 
-//question: "./images/..name"
+ function resetButtonColour() {
+    questionButtons.forEach(button => {
+    button.style.backgroundColor = "";
+    });
 
-// forEach method. function for each element in array
+    }
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < chosenArray.length) {
+            resetButtonColour();
+            displayQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    finalScoreContainer.style.display = "flex";
+
+}
+
 
 // Event Listeners 
 
@@ -111,5 +145,7 @@ citiesOption.addEventListener('click', () => categoryOptions("citiesQuiz"));
 flagsOption.addEventListener('click', () => categoryOptions("flagsQuiz"));
 
 questionButtons.forEach((button) => button.addEventListener('click', revealAnswer));
-// Category Buttons 
+
+restartBtn.addEventListener('click', restartQuiz);
+
 
