@@ -24,6 +24,16 @@ const citiesArray = [
         answers: ["Copenhagen", "Berlin", "Sydney"],
         correctAnswer: "Berlin"
     },
+    {
+        image: "Cities/BuenosAires.jpg",
+        answers: ["Buenos Aires", "Barcelona", "Santiago"],
+        correctAnswer: "Buenos Aires"
+    },
+    {
+        image: "Cities/shanghai.webp",
+        answers: ["New York", "Tokyo", "Shanghai"],
+        correctAnswer: "Shanghai"
+    },
 ]
  
 
@@ -43,6 +53,21 @@ const flagsArray = [
         image: "Flags/Vietnam.gif",
         answers: ["Canada", "Vietnam", "Australia"],
         correctAnswer: "Vietnam"
+    },
+    {
+        image: "Flags/Malaysia.gif",
+        answers: ["Philippines", "Malaysia", "Angola"],
+        correctAnswer: "Malaysia"
+    },
+    {
+        image: "Flags/SouthKorea.gif",
+        answers: ["China", "India", "South Korea"],
+        correctAnswer: "South Korea"
+    },
+    {
+        image: "Flags/Switzerland.gif",
+        answers: ["Switzerland", "Algeria", "Armenia"],
+        correctAnswer: "Switzerland"
     },
 ]
 /*-------------------------------- Variables --------------------------------*/
