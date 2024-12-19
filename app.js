@@ -66,7 +66,7 @@ const restartBtn = document.querySelector("#restart-btn")
 /*-------------------------------- Functions --------------------------------*/
 
 function showCategoryPage() {
-    startPage.style.display = "none";     //  
+    startPage.style.display = "none";       
     categoryPage.style.display = "block";   
   }
 
@@ -84,7 +84,7 @@ function displayQuestion() {
     const question = chosenArray[currentQuestionIndex]; 
     console.log('Displaying question:', question)
 
-
+ 
     questionImage.src = question.image
 
   
@@ -94,6 +94,7 @@ function displayQuestion() {
    })
   
 }
+
 
 function updateScoreDisplay() {
     scoreElement.innerHTML = score; 
@@ -132,8 +133,15 @@ function revealAnswer(event) {
 
 function endQuiz() {
     finalScoreContainer.style.display = "flex";
-
+    finalScoreSpan.innerHTML = score;
 }
+
+function restartQuiz() {
+    updateScoreDisplay();
+    finalScoreContainer.style.display = "none";
+    startPage.style.display = "flex";
+}
+
 
 
 // Event Listeners 
