@@ -32,11 +32,14 @@
     bottom: 60px;
     height: 150px;
     font-size: medium;
+    font-style:italic;
   }
 
   .score {
     width: 100px;
     height: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
   }
   
 #start-btn {
@@ -194,5 +197,5 @@ img {
 }
 
 #restart-btn {
-  background-color: #218838;
+  background-color: green;
 }

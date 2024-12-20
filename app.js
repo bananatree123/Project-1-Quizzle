@@ -1,6 +1,4 @@
 
-/*-------------------------------- Constants --------------------------------*/
-// two arrays - one for flags + one for cities 
 const citiesArray = [
 
     {
@@ -34,7 +32,23 @@ const citiesArray = [
         answers: ["New York", "Tokyo", "Shanghai"],
         correctAnswer: "Shanghai"
     },
+    {
+        image: "Cities/NYC.webp",
+        answers: ["Chicago", "New York", "Houston"],
+        correctAnswer: "New York"
+    },
+    {
+        image: "Cities/Amsterdam.jpeg",
+        answers: ["Copenhagen", "Charleston", "Amsterdam"],
+        correctAnswer: "Amsterdam"
+    },
+    {
+        image: "Cities/Prague.jpeg",
+        answers: ["Rotterdam", "Prague", "Portland"],
+        correctAnswer: "Prague"
+    },
 ]
+
  
 
 const flagsArray = [
@@ -69,12 +83,27 @@ const flagsArray = [
         answers: ["Switzerland", "Algeria", "Armenia"],
         correctAnswer: "Switzerland"
     },
+    {
+        image: "Flags/Netherlands.gif",
+        answers: ["Netherlands", "Croatia", "Taiwan"],
+        correctAnswer: "Netherlands"
+    },
+    {
+        image: "Flags/Canada.gif",
+        answers: ["Turkey", "Canada", "Portugal"],
+        correctAnswer: "Canada"
+    },
+    {
+        image: "Flags/Brazil.gif",
+        answers: ["Romania", "Sri Lanka", "Brazil"],
+        correctAnswer: "Brazil"
+    },
 ]
-/*-------------------------------- Variables --------------------------------*/
+
 let chosenArray = [];
 let currentQuestionIndex = 0
 let score = 0
-/*------------------------ Cached Element References ------------------------*/
+
 const startBtn = document.querySelector("#start-btn");
 const startPage = document.querySelector("#start-page");
 const categoryPage = document.querySelector("#categories-page");
@@ -88,7 +117,7 @@ const scoreElement = document.querySelector(".score span")
 const finalScoreContainer = document.querySelector("#final-score-container")
 const finalScoreSpan = document.querySelector("#final-score")
 const restartBtn = document.querySelector("#restart-btn")
-/*-------------------------------- Functions --------------------------------*/
+
 
 function showCategoryPage() {
     startPage.style.display = "none";       
@@ -120,7 +149,6 @@ function displayQuestion() {
   
 }
 
-
 function updateScoreDisplay() {
     scoreElement.innerHTML = score; 
 }
@@ -138,15 +166,8 @@ function revealAnswer(event) {
         event.target.style.backgroundColor = "red";
     }
 
- function resetButtonColour() {
-    questionButtons.forEach(button => {
-    button.style.backgroundColor = "";
-    });
-
-    }
-
-    setTimeout(() => {
-        currentQuestionIndex++;
+setTimeout(() => {
+    currentQuestionIndex++;
         if (currentQuestionIndex < chosenArray.length) {
             resetButtonColour();
             displayQuestion();
@@ -162,14 +183,20 @@ function endQuiz() {
 }
 
 function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
     updateScoreDisplay();
+    resetButtonColour();
     finalScoreContainer.style.display = "none";
     startPage.style.display = "flex";
 }
 
-
-
-// Event Listeners 
+function resetButtonColour() {
+    questionButtons.forEach(button => {
+    button.style.backgroundColor = "";
+    });
+    
+    }
 
 startBtn.addEventListener('click', showCategoryPage);
 
