@@ -116,13 +116,16 @@ https://statemag.state.gov/2023/11/1123pom/
 Monday
 - Find Images for game, cities and flags. 
 - Create quiz container with 5 divs: Start page, Categories page, Questions page, Score box, Final score container
+![alt text](<README Images/HTMLdiv.png>)
 - Create the buttons inside of these divs
 - Buttons for starting the game, choosing a category, answers to questions and start again 
 - CSS for the size and placement of my buttons within the quiz container
 - Cache button elements in JavaScript 
+![Quizzle](<README Images/CachedElements.png>)
 
 Tuesday 
 - Give start game button an id, cache and create a function to show and hide it, add an event listener so when clicked the button is hidden 
+- ensure button have added event listeners and 'click'
 - Do this with Category Page button and apply a function which then hides the category page once the user has selected a category. 
 - Create two different arrays of objects, Cities Array and Flags Array. 
 - Add the objects, each object contains image, 3 answers and correct answer. 
@@ -138,6 +141,7 @@ Wednesday
 
 Thursday 
 - Reveal Answer function, user answer updates innerHTML of button
+![Quizzle](<README Images/RevealAnswerFunction.png>)
 - Using if statement, if user answer is equal to correct answer in object, 
 score increments by 100, and button will go green, style.backgroundcolor, otherwise red. 
 - Timeout function for seamless question movement. currentQuestionIndex++ inside setTimeout function
@@ -145,6 +149,7 @@ score increments by 100, and button will go green, style.backgroundcolor, otherw
 - else end quiz.
 - Restartbutton function, showing final score, using none and flex to hide quiz behind. 
 - move resetButton function outside of reveal answer to it is globally accessible. 
+![Quizzle](<README Images/Restart.png>)
 
 ### Challenges 
 
